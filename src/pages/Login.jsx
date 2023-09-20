@@ -1,6 +1,6 @@
-import LoginForm from "../Components/LoginForm";
+import LoginForm from "../components/LoginForm";
 
-const Contact = () => {
+export const Contact = () => {
   return (
     <>
       <h1>Login</h1>
