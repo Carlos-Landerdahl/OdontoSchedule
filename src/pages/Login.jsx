@@ -1,6 +1,6 @@
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../Components/Login/Index";
 
-export const Contact = () => {
+export const Login = () => {
   return (
     <>
       <h1>Login</h1>
@@ -9,4 +9,4 @@ export const Contact = () => {
   );
 };
 
-export default Contact;
+export default Login;

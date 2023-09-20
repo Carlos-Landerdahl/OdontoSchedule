@@ -4,7 +4,7 @@ import { RoutesApp } from "./routes";
 function App() {
   return (
     <BrowserRouter>
-      <div className={`app light}`}>
+      <div className={`app light`}>
         <RoutesApp />
       </div>
     </BrowserRouter>

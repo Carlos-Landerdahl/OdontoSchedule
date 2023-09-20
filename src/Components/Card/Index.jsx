@@ -1,7 +1,10 @@
 import styles from "./Card.module.css";
+import { Link, useParams } from "react-router-dom";
 
 const Card = () => {
+  const { detail } = useParams();
 
+  console.log(detail);
   return (
     <>
       {/* //Na linha seguinte deverá ser feito um teste se a aplicação
@@ -15,9 +18,11 @@ const Card = () => {
         <div className={`card-body ${styles.CardBody}`}>
           {/* Na linha seguinte o link deverá utilizar a matricula, nome e sobrenome do dentista
           que vem da API */}
-          <a href={`/dentist/MatriculaDoDentista`}>
-            <h5 className={`card-title ${styles.title}`}>Nome e Sobrenome do dentista</h5>
-          </a>
+          <Link to="/dentista">
+            <h5 className={`card-title ${styles.title}`}>
+              Nome e Sobrenome do dentista
+            </h5>
+          </Link>
         </div>
       </div>
     </>
