@@ -1,17 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ScheduleFormModal from "../ModalScheduleForm/Index";
 import styles from "./DetailCard.module.css";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
-const DetailCard = () => {
+const DetailCard = ({ match }) => {
+  const { id } = useParams();
+  const [destistaDetails, setDentistaDetails] = useState([]);
+  const { nome, sobrenome, usuario } = destistaDetails;
+
   useEffect(() => {
-    //Nesse useEffect, você vai fazer um fetch na api passando o
-    //id do dentista que está vindo do react-router e carregar os dados em algum estado
-  }, []);
+    axios.get(`https://dhodonto.ctd.academy/dentista?matricula=${id}`)
+      .then(response => {
+        setDentistaDetails(response.data);
+      })
+      .catch(error => {
+        console.error("Erro ao fazer o fetch de detalhes", error);
+      })
+  }, [id]);
+
   return (
-    //As instruções que estão com {''} precisam ser
-    //substituídas com as informações que vem da api
     <>
-      <h1>Detail about Dentist {"Nome do Dentista"} </h1>
+      <h1>Detalhes do dentista</h1>
       <section className="card col-sm-12 col-lg-6 container">
         {/* //Na linha seguinte deverá ser feito um teste se a aplicação
         // está em dark mode e deverá utilizar o css correto */}
@@ -25,12 +35,12 @@ const DetailCard = () => {
           </div>
           <div className="col-sm-12 col-lg-6">
             <ul className="list-group">
-              <li className="list-group-item">Nome: {"Nome do Dentista"}</li>
+              <li className="list-group-item">Nome: {nome}</li>
               <li className="list-group-item">
-                Sobrenome: {"Sobrenome do Dentista"}
+                Sobrenome: {sobrenome}
               </li>
               <li className="list-group-item">
-                Usuário: {"Nome de usuário do Dentista"}
+                Usuário: {usuario?.username}
               </li>
             </ul>
             <div className="text-center">

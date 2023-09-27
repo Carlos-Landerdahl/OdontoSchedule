@@ -10,7 +10,7 @@ export function RoutesApp() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dentista" element={<Detail />} />
+        <Route path="/dentista/:id" element={<Detail />} />
       </Route>
     </Routes>
   );
