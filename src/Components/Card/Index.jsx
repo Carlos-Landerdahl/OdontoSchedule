@@ -1,13 +1,13 @@
 import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
-const Card = ({ dentist }) => {
-  const { matricula, nome, sobrenome } = dentist;
-
-  const isDarkMode = false; // Substitua por sua lógica de verificação de modo escuro
+const Card = ({ dentista }) => {
+  const { matricula, nome, sobrenome } = dentista;
+  const { isDarkMode } = useTheme();
 
   return (
-    <div className={`card ${isDarkMode ? 'dark-mode' : ''}`}>
+    <div className={`card ${isDarkMode ? styles.cardDark : ''}`}>
       <img
         className="card-img-top"
         src="/images/doctor.jpg"

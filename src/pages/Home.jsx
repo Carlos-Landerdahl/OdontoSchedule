@@ -21,7 +21,7 @@ export const Home = () => {
       <h1>Home</h1>
       <div className="card-grid container">
         {dentistas.map(dentista => (
-          <Card key={dentista.matricula} dentist={dentista} />
+          <Card key={dentista.matricula} dentista={dentista} />
         ))}
       </div>
     </>

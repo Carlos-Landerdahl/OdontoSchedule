@@ -1,6 +1,9 @@
+import { useTheme } from "../../context/ThemeContext";
 import styles from "./Form.module.css";
 
 const LoginForm = () => {
+  const { isDarkMode } = useTheme();
+
   const handleSubmit = (e) => {
     //Nesse handlesubmit você deverá usar o preventDefault,
     //enviar os dados do formulário e enviá-los no corpo da requisição 
@@ -13,10 +16,9 @@ const LoginForm = () => {
 
   return (
     <>
-      {/* //Na linha seguinte deverá ser feito um teste se a aplicação
-        // está em dark mode e deverá utilizar o css correto */}
       <div
-        className={`text-center card container ${styles.card}`}
+        className={`text-center card container ${isDarkMode ? styles.cardDark : ""
+          } ${styles.card}`}
       >
         <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
