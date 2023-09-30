@@ -14,7 +14,7 @@ const Navbar = () => {
       >
         <div className="container">
           <Link className={`navbar-brand ${styles.navbarBrand}`} to="/home">
-            DH Odonto
+            Odonto schedule
           </Link>
           <button
             className="navbar-toggler"

@@ -8,7 +8,6 @@ export const Home = () => {
   useEffect(() => {
     axios.get("https://dhodonto.ctd.academy/dentista")
       .then(response => {
-        console.log(response);
         setDentistas(response.data);
       })
       .catch(error => {
