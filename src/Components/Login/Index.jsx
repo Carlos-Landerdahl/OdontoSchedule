@@ -15,9 +15,9 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <main>
       <div
-        className={`text-center card container ${isDarkMode ? styles.cardDark : ""
+        className={`text-center card container ${isDarkMode ? 'dark' : ""
           } ${styles.card}`}
       >
         <div className={`card-body ${styles.CardBody}`}>
@@ -41,7 +41,7 @@ const LoginForm = () => {
           </form>
         </div>
       </div>
-    </>
+    </main>
   );
 };
 

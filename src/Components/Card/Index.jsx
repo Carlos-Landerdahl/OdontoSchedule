@@ -7,7 +7,7 @@ const Card = ({ dentista }) => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className={`card ${isDarkMode ? styles.cardDark : ''}`}>
+    <div className={`card ${isDarkMode ? 'dark' : ''}`}>
       <img
         className="card-img-top"
         src="/images/doctor.jpg"

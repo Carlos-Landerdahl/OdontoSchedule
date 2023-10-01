@@ -13,14 +13,13 @@ const Footer = () => {
     <footer>
       <div className={styles.footerWrapper}>
         <button
-          className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.top
-            }`}
+          className={`btn ${isDarkMode ? "btn-light" : "dark"} ${styles.top}`}
           onClick={scrollToTop}
         >
           Voltar para o topo
         </button>
         <div
-          className={`navbar ${isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+          className={`navbar ${isDarkMode ? "navbar-dark dark" : "navbar-light bg-light"
             } ${styles.footer}`}
         >
           <div className="container">

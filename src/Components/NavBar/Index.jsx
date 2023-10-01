@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <header className="sticky-top">
       <nav
-        className={`navbar navbar-expand-sm ${isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+        className={`navbar navbar-expand-sm ${isDarkMode ? "navbar-dark dark" : "navbar-light bg-light"
           }`}
         aria-label="Third navbar example"
       >

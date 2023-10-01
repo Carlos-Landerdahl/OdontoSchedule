@@ -21,7 +21,7 @@ const ScheduleForm = () => {
   return (
     <>
       <div
-        className={`text-center container ${isDarkMode ? styles.cardDark : ""}`}
+        className={`text-center container ${isDarkMode ? 'dark': ""}`}
       >
         <form onSubmit={handleSubmit}>
           <div className={`row ${styles.rowSpacing}`}>
@@ -63,7 +63,7 @@ const ScheduleForm = () => {
           </div>
           <div className={`row ${styles.rowSpacing}`}>
             <button
-              className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.button}`}
+              className={`btn ${isDarkMode ? "btn-light" : "dark"}`}
               type="submit"
             >
               Agendar
