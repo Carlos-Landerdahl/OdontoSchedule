@@ -15,9 +15,9 @@ const LoginForm = () => {
   };
 
   return (
-    <main>
+    <>
       <div
-        className={`text-center card container ${isDarkMode ? 'dark' : ""
+        className={`text-center card container ${isDarkMode ? 'dark' : "lightMode"
           } ${styles.card}`}
       >
         <div className={`card-body ${styles.CardBody}`}>
@@ -35,13 +35,13 @@ const LoginForm = () => {
               type="password"
               required
             />
-            <button className="btn btn-primary" type="submit">
+            <button  type="submit" className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}>
               Entrar
             </button>
           </form>
         </div>
       </div>
-    </main>
+    </>
   );
 };
 

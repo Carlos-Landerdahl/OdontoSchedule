@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import {useEffect, useState } from "react";
 import styles from "./ScheduleForm.module.css";
-import { useTheme } from "../../context/ThemeContext"; // Importe o contexto de tema
+import {useTheme} from "../../context/ThemeContext";
 
-const ScheduleForm = () => {
-  const { isDarkMode } = useTheme(); // Usar o estado de modo escuro do contexto
+export const ScheduleForm = () => {
+  const {isDarkMode} = useTheme();
 
   useEffect(() => {
     //Nesse useEffect, você vai fazer um fetch na api buscando TODOS os dentistas
@@ -20,8 +20,11 @@ const ScheduleForm = () => {
 
   return (
     <>
+      {/* //Na linha seguinte deverá ser feito um teste se a aplicação
+        // está em dark mode e deverá utilizar o css correto */}
       <div
-        className={`text-center container ${isDarkMode ? 'dark': ""}`}
+        className={`text-center container}`
+        }
       >
         <form onSubmit={handleSubmit}>
           <div className={`row ${styles.rowSpacing}`}>
@@ -62,8 +65,10 @@ const ScheduleForm = () => {
             </div>
           </div>
           <div className={`row ${styles.rowSpacing}`}>
+            {/* //Na linha seguinte deverá ser feito um teste se a aplicação
+        // está em dark mode e deverá utilizar o css correto */}
             <button
-              className={`btn ${isDarkMode ? "btn-light" : "dark"}`}
+               className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}
               type="submit"
             >
               Agendar
@@ -74,5 +79,3 @@ const ScheduleForm = () => {
     </>
   );
 };
-
-export default ScheduleForm;

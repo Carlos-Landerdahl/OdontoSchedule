@@ -12,10 +12,13 @@ code {
     monospace;
 }
 
-.app{
+#wrapperLogin {
   height: 100vh;
 }
 
+#wrapperDetailCard {
+  height: 100vh;
+}
 
 h1 {
   text-align: center;
@@ -47,10 +50,6 @@ form {
   justify-content: space-around;
   width: 300px;
   margin: 0 auto;
-}
-
-.btn-light {
-  background-color: rgb(214, 214, 214);
 }
 
 .card-grid {
@@ -103,11 +102,23 @@ tr:nth-child(even) {
 .dark {
   background-color: #001D2D;
   color: #fff;
+  border: none;
 }
 
-/* .cardLight {
-  background-color: #3498db;
-} */
+.darkButton {
+  background: #3498db;
+  color: #fff;
+  outline: none;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+  font-weight: 600;
+}
+
+/* btnClose formModalSchedule */
+.closeDarkButton {
+  filter: invert(1);
+}
 
 .cardLink {
   color: #fff;
@@ -117,8 +128,10 @@ tr:nth-child(even) {
   }
 }
 
-.dark>a {
+.darkLink {
+  background-color: none;
   color: #fff;
+  border: none;
 
   &:hover {
     opacity: .8;
@@ -132,43 +145,25 @@ tr:nth-child(even) {
     opacity: .8;
   }
 }
-.dark h1{
+
+.dark h1 {
   color: #fff;
 }
 
-.dark button {
-  color: #fff;
+/* ligth-Mode */
+
+.lightMode {
   background: #3498db;
   color: #000;
-  font-weight: 600;
   border: none;
+}
+
+.buttonLight {
+  background: #0d6efd;
+  color: #fff;
   outline: none;
-  &:hover{
-    opacity: .8;
-  }
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+  font-weight: 600;
 }
-
-/* ligth-Mode 
-
-.lightCard {
-  background-color: #001D2D;
-  color: #fff;
-
-}
-
-.light>a {
-  color: #fff;
-
-  &:hover {
-    opacity: .8;
-  }
-}
-
-.light h5 {
-  color: #fff;
-
-  &:hover {
-    opacity: .8;
-  }
-}
-*/

@@ -18,7 +18,7 @@ export const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <div className="card-grid container">
+      <div className="card-grid container mb-5">
         {dentistas.map(dentista => (
           <Card key={dentista.matricula} dentista={dentista} />
         ))}
