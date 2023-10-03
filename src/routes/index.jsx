@@ -16,7 +16,7 @@ export function RoutesApp() {
             <Route path="/dentista/:id" element={<Detail />} />
           </Route>
         </Routes>
-        </ThemeProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
