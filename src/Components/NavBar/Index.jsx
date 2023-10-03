@@ -8,13 +8,13 @@ const Navbar = () => {
   return (
     <header className="sticky-top">
       <nav
-        className={`navbar navbar-expand-sm ${isDarkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+        className={`navbar navbar-expand-sm ${isDarkMode ? "navbar-dark dark" : "navbar-light lightMode"
           }`}
         aria-label="Third navbar example"
       >
         <div className="container">
           <Link className={`navbar-brand ${styles.navbarBrand}`} to="/home">
-            DH Odonto
+            Odonto schedule
           </Link>
           <button
             className="navbar-toggler"
@@ -34,12 +34,12 @@ const Navbar = () => {
           >
             <ul className="navbar-nav mb-2 mb-sm-0">
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className="nav-link" to="/home">
+                <Link className={`nav-link ${isDarkMode ? "darkLink" : "" }`} to="/home">
                   Home
                 </Link>
               </li>
               <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className="nav-link" to="/login">
+                <Link className={`nav-link ${isDarkMode ? "darkLink" : "" }`} to="/login">
                   Login
                 </Link>
               </li>

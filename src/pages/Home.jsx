@@ -8,7 +8,6 @@ export const Home = () => {
   useEffect(() => {
     axios.get("https://dhodonto.ctd.academy/dentista")
       .then(response => {
-        console.log(response);
         setDentistas(response.data);
       })
       .catch(error => {
@@ -19,7 +18,7 @@ export const Home = () => {
   return (
     <>
       <h1>Home</h1>
-      <div className="card-grid container">
+      <div className="card-grid container mb-5">
         {dentistas.map(dentista => (
           <Card key={dentista.matricula} dentista={dentista} />
         ))}

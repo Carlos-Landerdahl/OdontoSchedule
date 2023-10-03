@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ScheduleFormModal from "../ModalScheduleForm/Index";
 import styles from "./DetailCard.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
+import { ScheduleFormModal } from "../ScheduleFormModal";
 
 const DetailCard = () => {
   const { id } = useParams();
@@ -26,10 +26,11 @@ const DetailCard = () => {
     <>
       <h1>Detalhes do dentista</h1>
       <section
-        className={`card col-sm-12 col-lg-6 container ${isDarkMode ? styles.cardDark : ""
-          }`}
+        className={`card col-sm-12 col-lg-6 container ${
+          isDarkMode ? "dark" : "light-mode"
+        }`}
       >
-        <div className={`card-body row`}>
+        <div className={`card-body row ${isDarkMode ? "dark" : "lightMode"}`}>
           <div className="col-sm-12 col-lg-6">
             <img
               className="card-img-top"
@@ -38,17 +39,26 @@ const DetailCard = () => {
             />
           </div>
           <div className="col-sm-12 col-lg-6">
-            <ul className="list-group">
-              <li className="list-group-item">Nome: {nome}</li>
-              <li className="list-group-item">Sobrenome: {sobrenome}</li>
-              <li className="list-group-item">Usuário: {usuario?.username}</li>
+            <ul className="list-group d-flex gap-1">
+              <li className="list-group-item d-flex gap-1">
+                <b>Nome:</b>
+                {nome}
+              </li>
+              <li className="list-group-item d-flex gap-1">
+                <b>Sobrenome:</b>
+                {sobrenome}{" "}
+              </li>
+              <li className="list-group-item d-flex gap-1">
+                <b>Usuário:</b>
+                {usuario?.username}
+              </li>
             </ul>
-            <div className="text-center">
+            <div className={`text-center ${styles.wrapperBtn}`}>
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.button
-                  }`}
+                className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}
+                type="submit"
               >
                 Marcar consulta
               </button>

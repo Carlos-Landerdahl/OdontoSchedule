@@ -17,26 +17,26 @@ const LoginForm = () => {
   return (
     <>
       <div
-        className={`text-center card container ${isDarkMode ? styles.cardDark : ""
+        className={`text-center card container ${isDarkMode ? 'dark' : "lightMode"
           } ${styles.card}`}
       >
         <div className={`card-body ${styles.CardBody}`}>
           <form onSubmit={handleSubmit}>
             <input
               className={`form-control ${styles.inputSpacing}`}
-              placeholder="Login"
+              placeholder="Email"
               name="login"
               required
             />
             <input
               className={`form-control ${styles.inputSpacing}`}
-              placeholder="Password"
+              placeholder="Senha"
               name="password"
               type="password"
               required
             />
-            <button className="btn btn-primary" type="submit">
-              Send
+            <button  type="submit" className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}>
+              Entrar
             </button>
           </form>
         </div>

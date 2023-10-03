@@ -1,17 +1,3 @@
-.footerWrapper {
-  margin-top: auto;
-}
-
-.top {
-  text-transform: uppercase;
-  padding: 1rem;
-  background: #f21d1d;
-  border: none;
-  color: white;
-  margin-top: 2rem;
-  width: 100%;
-}
-
 .footer {
   padding: 2rem 0;
 }
@@ -24,11 +10,11 @@
   filter: brightness(0);
 }
 
-.iconsDark{
-  filter: brightness(0) invert(1);
+.iconsDark {
+  filter: invert();
 }
 
-.dhLogo{
+.dhLogo {
   max-width: 50%;
 }
 

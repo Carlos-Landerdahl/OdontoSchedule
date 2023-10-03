@@ -1,5 +1,6 @@
 .navbarBrand {
   font-size: 30px;
+  font-weight: 600;
 }
 
 .navbarBrand::first-letter {

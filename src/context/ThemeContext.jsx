@@ -10,8 +10,8 @@ export function ThemeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    console.log("Toggle Dark Mode clicked");
     setIsDarkMode(!isDarkMode);
+    console.log(`Dark Mode: ${isDarkMode}`)
   };
 
   return (

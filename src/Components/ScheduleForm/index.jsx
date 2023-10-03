@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import {useEffect, useState } from "react";
 import styles from "./ScheduleForm.module.css";
-import { useTheme } from "../../context/ThemeContext"; // Importe o contexto de tema
+import {useTheme} from "../../context/ThemeContext";
 
-const ScheduleForm = () => {
-  const { isDarkMode } = useTheme(); // Usar o estado de modo escuro do contexto
+export const ScheduleForm = () => {
+  const {isDarkMode} = useTheme();
 
   useEffect(() => {
     //Nesse useEffect, você vai fazer um fetch na api buscando TODOS os dentistas
@@ -20,14 +20,17 @@ const ScheduleForm = () => {
 
   return (
     <>
+      {/* //Na linha seguinte deverá ser feito um teste se a aplicação
+        // está em dark mode e deverá utilizar o css correto */}
       <div
-        className={`text-center container ${isDarkMode ? styles.cardDark : ""}`}
+        className={`text-center container}`
+        }
       >
         <form onSubmit={handleSubmit}>
           <div className={`row ${styles.rowSpacing}`}>
             <div className="col-sm-12 col-lg-6">
               <label htmlFor="dentist" className="form-label">
-                Dentist
+                Dentista
               </label>
               <select className="form-select" name="dentist" id="dentist">
                 {/*Aqui deve ser feito um map para listar todos os dentistas*/}
@@ -38,7 +41,7 @@ const ScheduleForm = () => {
             </div>
             <div className="col-sm-12 col-lg-6">
               <label htmlFor="patient" className="form-label">
-                Patient
+                Paciente
               </label>
               <select className="form-select" name="patient" id="patient">
                 {/*Aqui deve ser feito um map para listar todos os pacientes*/}
@@ -51,7 +54,7 @@ const ScheduleForm = () => {
           <div className={`row ${styles.rowSpacing}`}>
             <div className="col-12">
               <label htmlFor="appointmentDate" className="form-label">
-                Date
+                Data
               </label>
               <input
                 className="form-control"
@@ -62,11 +65,13 @@ const ScheduleForm = () => {
             </div>
           </div>
           <div className={`row ${styles.rowSpacing}`}>
+            {/* //Na linha seguinte deverá ser feito um teste se a aplicação
+        // está em dark mode e deverá utilizar o css correto */}
             <button
-              className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.button}`}
+               className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}
               type="submit"
             >
-              Schedule
+              Agendar
             </button>
           </div>
         </form>
@@ -74,5 +79,3 @@ const ScheduleForm = () => {
     </>
   );
 };
-
-export default ScheduleForm;
