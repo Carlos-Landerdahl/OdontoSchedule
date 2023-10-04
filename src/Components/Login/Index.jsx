@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 const LoginForm = () => {
   const { isDarkMode } = useTheme();
   const navigate = useNavigate();
-  const { isAuthenticated, login } = useAuth();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     username: "",
     password: "",

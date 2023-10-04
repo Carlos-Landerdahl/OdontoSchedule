@@ -1,5 +1,4 @@
 import { useTheme } from "../../context/ThemeContext";
-import styles from "./404.module.css";
 
 const Page404 = () => {
   const { isDarkMode } = useTheme();

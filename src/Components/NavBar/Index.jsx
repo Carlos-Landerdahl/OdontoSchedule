@@ -35,18 +35,27 @@ const Navbar = () => {
             className="collapse navbar-collapse justify-content-end"
             id="navbarsExample03"
           >
-            {isAuthenticated ? (
             <ul className="navbar-nav mb-2 mb-sm-0">
-              <li className={`nav-item ${styles.navBarLink}`}>
-                <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/home">
-                  Home
-                </Link>
-              </li>
-              <li className={`nav-item ${styles.navBarLink}`}>
-                <Link onClick={logout} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
-                  Logout
-                </Link>
-              </li>
+              {isAuthenticated ? (
+                <>
+                  <li className={`nav-item ${styles.navBarLink}`}>
+                  <Link onClick={logout} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
+                    Logout
+                  </Link>
+                  </li>
+                  <li className={`nav-item ${styles.navBarLink}`}>
+                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/home">
+                      Home
+                    </Link>
+                  </li>
+                </>
+              ): (
+                  <li className={`nav-item ${styles.navBarLink}`}>
+                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
+                      Login
+                    </Link>
+                  </li>
+              )}
               <li className={`nav-item`}>
                 <button
                   className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.btnStyle}`}
@@ -56,29 +65,6 @@ const Navbar = () => {
                 </button>
               </li>
             </ul>
-            ) : (
-                <ul className="navbar-nav mb-2 mb-sm-0">
-                  <li className={`nav-item ${styles.navBarLink}`}>
-                    <Link aria-disabled={true} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} href="/home">
-                      Home
-                    </Link>
-                  </li>
-                  <li className={`nav-item ${styles.navBarLink}`}>
-                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
-                      Login
-                    </Link>
-                  </li>
-                  <li className={`nav-item`}>
-                    <button
-                      className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.btnStyle}`}
-                      onClick={toggleDarkMode}
-                    >
-                      {isDarkMode ? "☀" : "🌙"}
-                    </button>
-                  </li>
-                </ul>
-            )}
-            
           </div>
         </div>
       </nav>

@@ -1,4 +1,4 @@
-import {useEffect, useState } from "react";
+import {useEffect } from "react";
 import styles from "./ScheduleForm.module.css";
 import {useTheme} from "../../context/ThemeContext";
 

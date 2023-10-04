@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./DetailCard.module.css";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { ScheduleFormModal } from "../ScheduleFormModal";
