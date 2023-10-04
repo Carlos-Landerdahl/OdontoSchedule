@@ -1,17 +1,39 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useTheme } from "../../context/ThemeContext";
+import { api } from "../../services/api";
 import styles from "./Form.module.css";
+import { useAuth } from '../../context/AuthContext';
 
 const LoginForm = () => {
   const { isDarkMode } = useTheme();
+  const navigate = useNavigate();
+  const { isAuthenticated, login } = useAuth();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  })
 
-  const handleSubmit = (e) => {
-    //Nesse handlesubmit você deverá usar o preventDefault,
-    //enviar os dados do formulário e enviá-los no corpo da requisição 
-    //para a rota da api que faz o login /auth
-    //lembre-se que essa rota vai retornar um Bearer Token e o mesmo deve ser salvo
-    //no localstorage para ser usado em chamadas futuras
-    //Com tudo ocorrendo corretamente, o usuário deve ser redirecionado a página principal,com react-router
-    //Lembre-se de usar um alerta para dizer se foi bem sucedido ou ocorreu um erro
+  function handleChangeForm(e) {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    })    
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await api.post("/auth", formData)
+      const token = response.data.token
+
+      login(token)
+      navigate('/home')
+    } catch (error) {
+      console.log("Erro na solicitação: ", error); 
+    }
   };
 
   return (
@@ -24,9 +46,13 @@ const LoginForm = () => {
           <form onSubmit={handleSubmit}>
             <input
               className={`form-control ${styles.inputSpacing}`}
-              placeholder="Email"
-              name="login"
+              placeholder="Nome"
+              type="text"
+              name="username"
+              id="username"
               required
+              value={formData.username}
+              onChange={handleChangeForm}
             />
             <input
               className={`form-control ${styles.inputSpacing}`}
@@ -34,6 +60,8 @@ const LoginForm = () => {
               name="password"
               type="password"
               required
+              value={formData.password}
+              onChange={handleChangeForm}
             />
             <button  type="submit" className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}>
               Entrar

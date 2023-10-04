@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { ScheduleFormModal } from "../ScheduleFormModal";
+import { api } from "../../services/api";
 
 const DetailCard = () => {
   const { id } = useParams();
@@ -12,8 +13,8 @@ const DetailCard = () => {
   const { nome, sobrenome, usuario } = destistaDetails;
 
   useEffect(() => {
-    axios
-      .get(`https://dhodonto.ctd.academy/dentista?matricula=${id}`)
+    api
+      .get(`/dentista?matricula=${id}`)
       .then((response) => {
         setDentistaDetails(response.data);
       })

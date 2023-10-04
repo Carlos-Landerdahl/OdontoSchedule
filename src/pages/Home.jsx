@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Card from "../Components/Card/Index";
-import axios from "axios";
+import { api } from "../services/api";
 
 export const Home = () => {
   const [dentistas, setDentistas] = useState([]);
 
   useEffect(() => {
-    axios.get("https://dhodonto.ctd.academy/dentista")
+    api.get("/dentista")
       .then(response => {
         setDentistas(response.data);
       })
