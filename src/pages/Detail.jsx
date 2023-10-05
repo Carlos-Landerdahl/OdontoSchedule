@@ -2,7 +2,7 @@ import DetailCard from "../Components/DetailCard/Index";
 
 export const Detail = () => {
   return (
-    <div id="wrapperDetailCard">
+    <div className="wrapperPage100vh">
       <DetailCard />
     </div>
   );

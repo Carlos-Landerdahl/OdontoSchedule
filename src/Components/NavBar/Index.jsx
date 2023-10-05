@@ -16,9 +16,9 @@ const Navbar = () => {
         aria-label="Third navbar example"
       > 
         <div className="container">
-          <Link className={`navbar-brand ${styles.navbarBrand}`} to="/home">
+          <h1 className={`navbar-brand ${styles.navbarBrand}`}>
             Odonto schedule
-          </Link>
+          </h1>
           <button
             className="navbar-toggler"
             type="button"
@@ -39,14 +39,14 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <>
                   <li className={`nav-item ${styles.navBarLink}`}>
-                  <Link onClick={logout} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
-                    Logout
-                  </Link>
-                  </li>
-                  <li className={`nav-item ${styles.navBarLink}`}>
                     <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/home">
                       Home
                     </Link>
+                  </li>
+                  <li className={`nav-item ${styles.navBarLink}`}>
+                  <Link onClick={logout} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
+                    Logout
+                  </Link>
                   </li>
                 </>
               ): (
