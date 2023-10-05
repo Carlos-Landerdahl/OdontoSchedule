@@ -7,6 +7,17 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const navigate = useNavigate();
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
 
   useEffect(() => {
     const token = localStorage.getItem("odonto-token");
@@ -35,9 +46,10 @@ export function AuthProvider({ children }) {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Sua conta foi desconectada',
-        )
+        Toast.fire({
+          icon: 'error',
+          title: 'Logout feito com sucesso'
+        })
         localStorage.removeItem('odonto-token');
         setIsAuthenticated(false); 
         navigate('/');

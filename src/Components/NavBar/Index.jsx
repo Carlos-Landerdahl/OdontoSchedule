@@ -20,9 +20,16 @@ const Navbar = () => {
         aria-label="Third navbar example"
       >
         <div className="container">
-          <h1 className={`navbar-brand ${styles.navbarBrand}`}>
+          <h1 className={`navbar-brand ${styles.navbarBrandMobile}`}>
             Odonto schedule
           </h1>
+          <button
+            className={`btn ${isDarkMode ? "btn-light" : "btn-dark"
+              } ${styles.btnStyleMobile}`}
+            onClick={toggleDarkMode}
+          >
+            {isDarkMode ? "☀" : "🌙"}
+          </button>
           <button
             className="navbar-toggler"
             type="button"
@@ -34,7 +41,6 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navbarsExample03"

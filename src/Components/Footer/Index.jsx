@@ -8,20 +8,18 @@ const Footer = () => {
   return (
     <footer>
       <div className={styles.footerWrapper}>
-        <div
-          className={`navbar ${isDarkMode ? "navbar-dark dark" : "navbar-light lightMode"
+        <nav
+          className={`navbar navbar-expand-lg ${isDarkMode ? "navbar-dark dark" : "navbar-light lightMode"
             } ${styles.footer}`}
         >
           <div className="container">
-            <div className={`row ${isDarkMode ? styles.iconsDark : ""}`}>
-              <div className="col-sm-12 col-lg-6">
+            <div className={`row align-items-center ${isDarkMode ? styles.iconsDark : ""}`}>
+              <div className={`col-lg-6 d-flex m-auto ${styles.icons}`}>
                 <img
                   className={`${styles.dhLogo}`}
                   src="/images/DH.png"
                   alt="DH-logo"
                 />
-              </div>
-              <div className={`col-sm-12 col-lg-6 ${styles.icons}`}>
                 <img
                   src="/images/ico-facebook.png"
                   alt="ícone do facebook"
@@ -45,7 +43,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     </footer>
   );

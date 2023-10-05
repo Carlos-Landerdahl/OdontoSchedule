@@ -2,9 +2,9 @@ import LoginForm from "../Components/Login/Index";
 
 export const Login = () => {
     return (
-        <div className="wrapperPage100vh">
+        <div>
           <section>
-            <h1>Login</h1>
+            <h1 className="p-0">Login</h1>
             <LoginForm/>
           </section>
         </div>

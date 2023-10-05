@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-.wrapperPage100vh{
-  height: 100vh;
-}
-
 h1 {
   text-align: center;
   padding: 2rem 0;

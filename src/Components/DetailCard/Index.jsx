@@ -4,31 +4,43 @@ import { useParams } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { ScheduleFormModal } from "../ScheduleFormModal";
 import { api } from "../../services/api";
+import { format } from "date-fns";
 
 const DetailCard = () => {
+  const [destistaDetails, setDentistaDetails] = useState([]);
+  const [consultasDentista, setConsultasDentista] = useState([]);
+
   const { id } = useParams();
   const { isDarkMode } = useTheme();
-  const [destistaDetails, setDentistaDetails] = useState([]);
   const { nome, sobrenome, usuario } = destistaDetails;
 
   useEffect(() => {
     api
-      .get(`/dentista?matricula=${id}`)
+      .get(`/dentista?matricula=aae48786-d34d-481a-8722-bea180b9b004`)
       .then((response) => {
         setDentistaDetails(response.data);
       })
       .catch((error) => {
         console.error("Erro ao fazer o fetch de detalhes", error);
       });
+
+    api
+      .get(`/consulta?dentistaMatricula=${id}`)
+      .then((response) => {
+        console.log(response);
+        setConsultasDentista(response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar consultas do dentista", error);
+      });
   }, [id]);
 
   return (
-    <>
+    <div>
       <h1>Detalhes do dentista</h1>
       <section
-        className={`card col-sm-12 col-lg-6 container ${
-          isDarkMode ? "dark" : "light-mode"
-        }`}
+        className={`card col-sm-12 col-lg-6 container ${isDarkMode ? "dark" : "light-mode"
+          }`}
       >
         <div className={`card-body row ${isDarkMode ? "dark" : "lightMode"}`}>
           <div className="col-sm-12 col-lg-6">
@@ -40,7 +52,7 @@ const DetailCard = () => {
           </div>
           <div className="col-sm-12 col-lg-6">
             <ul className="list-group d-flex gap-1">
-              <li className="list-group-item d-flex gap-1">
+              <li className="list-group-item d-flex gap-1 mt-2">
                 <b>Nome:</b>
                 {nome}
               </li>
@@ -65,9 +77,24 @@ const DetailCard = () => {
             </div>
           </div>
         </div>
+        <ScheduleFormModal />
       </section>
-      <ScheduleFormModal />
-    </>
+      <section className="container mt-4 p-3">
+        <h2>Consultas do Dentista</h2>
+        <ul className="list-group">
+          {consultasDentista.map((consulta) => (
+            <li key={consulta.id} className="list-group-item">
+              <strong>Data:</strong>{" "}
+              {format(new Date(consulta.dataHoraAgendamento), "dd/MM/yyyy HH:mm:ss", { timeZone: "America/Sao_Paulo" })}
+              <br />
+              <strong>Paciente:</strong> {consulta.paciente.nome} {consulta.paciente.sobrenome}
+              <br />
+              <strong>Dentista:</strong> {consulta.dentista.nome} {consulta.dentista.nome}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
   );
 };
 

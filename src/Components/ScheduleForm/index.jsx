@@ -13,6 +13,18 @@ export const ScheduleForm = () => {
   const [selectedPacienteMatricula, setSelectedPacienteMatricula] = useState(null);
   const [error, setError] = useState(null);
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   useEffect(() => {
     api
       .get(`/dentista`)
@@ -71,12 +83,9 @@ export const ScheduleForm = () => {
         if (response.data.error) {
           setError(response.data.error);
         } else {
-          Swal.fire({
-            position: 'top-end',
+          Toast.fire({
             icon: 'success',
-            title: 'Consulta agendada com sucesso',
-            showConfirmButton: false,
-            timer: 3000
+            title: 'Consulta marcada com sucesso'
           })
           setDataConsulta("");
           setSelectedDentistaMatricula(null);
