@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Navbar.module.css";
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -19,9 +20,9 @@ const Navbar = () => {
         aria-label="Third navbar example"
       >
         <div className="container">
-          <a className={`navbar-brand ${styles.navbarBrand}`} href="/home">
+          <h1 className={`navbar-brand ${styles.navbarBrand}`}>
             Odonto schedule
-          </a>
+          </h1>
           <button
             className="navbar-toggler"
             type="button"
@@ -42,20 +43,17 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <>
                   <li className={`nav-item ${styles.navBarLink}`}>
+                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/home">
+                      Home
+                    </Link>
+                  </li>
+                  <li className={`nav-item ${styles.navBarLink}`}>
                     <button
                       onClick={handleLogout}
                       className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
                     >
                       Logout
                     </button>
-                  </li>
-                  <li className={`nav-item ${styles.navBarLink}`}>
-                    <a
-                      className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
-                      href="/home"
-                    >
-                      Home
-                    </a>
                   </li>
                 </>
               ) : (

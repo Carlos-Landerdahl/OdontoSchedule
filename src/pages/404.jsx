@@ -1,8 +1,8 @@
-import Page404 from "../Components/404";
+import Page404 from "../Components/Page404";
 
 export const PageNotFound = () => {
   return (
-    <div>
+    <div className="wrapperPage100vh">
       <Page404 />
     </div>
   );

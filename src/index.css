@@ -12,11 +12,7 @@ code {
     monospace;
 }
 
-#wrapperLogin {
-  height: 100vh;
-}
-
-#wrapperDetailCard {
+.wrapperPage100vh{
   height: 100vh;
 }
 

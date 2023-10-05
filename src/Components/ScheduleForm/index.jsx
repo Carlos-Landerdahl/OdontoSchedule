@@ -11,7 +11,6 @@ export const ScheduleForm = () => {
   const [dataConsulta, setDataConsulta] = useState("");
   const [selectedDentistaMatricula, setSelectedDentistaMatricula] = useState(null);
   const [selectedPacienteMatricula, setSelectedPacienteMatricula] = useState(null);
-  const [consultaExistente, setConsultaExistente] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
