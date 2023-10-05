@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import styles from "./Navbar.module.css";
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
@@ -7,6 +7,9 @@ const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
   const { isAuthenticated, logout } = useAuth();
 
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <header className="sticky-top">
@@ -14,11 +17,11 @@ const Navbar = () => {
         className={`navbar navbar-expand-sm ${isDarkMode ? "navbar-dark dark" : "navbar-light lightMode"
           }`}
         aria-label="Third navbar example"
-      > 
+      >
         <div className="container">
-          <Link className={`navbar-brand ${styles.navbarBrand}`} to="/home">
+          <a className={`navbar-brand ${styles.navbarBrand}`} href="/home">
             Odonto schedule
-          </Link>
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -39,26 +42,36 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <>
                   <li className={`nav-item ${styles.navBarLink}`}>
-                  <Link onClick={logout} className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
-                    Logout
-                  </Link>
+                    <button
+                      onClick={handleLogout}
+                      className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
+                    >
+                      Logout
+                    </button>
                   </li>
                   <li className={`nav-item ${styles.navBarLink}`}>
-                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/home">
+                    <a
+                      className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
+                      href="/home"
+                    >
                       Home
-                    </Link>
+                    </a>
                   </li>
                 </>
-              ): (
-                  <li className={`nav-item ${styles.navBarLink}`}>
-                    <Link className={`nav-link ${isDarkMode ? "darkLink" : ""}`} to="/">
-                      Login
-                    </Link>
-                  </li>
+              ) : (
+                <li className={`nav-item ${styles.navBarLink}`}>
+                  <a
+                    className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
+                    href="/"
+                  >
+                    Login
+                  </a>
+                </li>
               )}
               <li className={`nav-item`}>
                 <button
-                  className={`btn ${isDarkMode ? "btn-light" : "btn-dark"} ${styles.btnStyle}`}
+                  className={`btn ${isDarkMode ? "btn-light" : "btn-dark"
+                    } ${styles.btnStyle}`}
                   onClick={toggleDarkMode}
                 >
                   {isDarkMode ? "☀" : "🌙"}

@@ -1,9 +1,12 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("odonto-token");
@@ -21,8 +24,25 @@ export function AuthProvider({ children }) {
   };
 
   const logout = () => {
-    localStorage.removeItem('odonto-token');
-    setIsAuthenticated(false);
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: "Sua conta será desconectada!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sair',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Sua conta foi desconectada',
+        )
+        localStorage.removeItem('odonto-token');
+        setIsAuthenticated(false); 
+        navigate('/');
+      }
+    })
   };
 
   return (
