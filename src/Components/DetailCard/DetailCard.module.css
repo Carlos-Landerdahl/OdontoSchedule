@@ -1,4 +1,32 @@
-.wrapperBtn{
+.wrapperBtn {
     margin-top: 20px;
     padding: 20px;
+}
+
+.wrapperAppointment {
+    margin: 104px 12px !important;
+}
+
+.slideAppointment {
+    display: flex;
+    gap: 2px;
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    overflow-y: visible;
+    height: 500px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 12px;
+        background-color: #3498db;
+        outline: 1px solid #3498db;
+    }
+}
+
+.scrollBarAppointment {
+    margin-right: 12px;
 }

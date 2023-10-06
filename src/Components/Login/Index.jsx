@@ -108,9 +108,9 @@ const LoginForm = () => {
           } ${styles.card}`}
       >
         <div className="card-body">
-          <form onSubmit={handleSubmit} className="d-flex gap-3">
+          <form onSubmit={handleSubmit} className="d-flex gap-3 w-100">
             <div className="text-start">
-              <label for="username">Nome:</label>
+              <label htmlFor="username">Nome:</label>
               <input
                 className={`form-control ${styles.inputSpacing}`}
                 placeholder="Nome do usuário"
@@ -124,7 +124,7 @@ const LoginForm = () => {
               {errors.username && <div className="text-bg-danger rounded-2 p-1 mt-1 opacity-75">{errors.username}</div>}
             </div>
             <div className="text-start">
-              <label for="password" className="text-start">Senha:</label>
+              <label htmlFor="password" className="text-start">Senha:</label>
               <input
                 className={`form-control ${styles.inputSpacing}`}
                 placeholder="Senha do usuário"

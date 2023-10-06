@@ -39,10 +39,11 @@ const DetailCard = () => {
     <div>
       <h1>Detalhes do dentista</h1>
       <section
-        className={`card col-sm-12 col-lg-6 container ${isDarkMode ? "dark" : "light-mode"
-          }`}
+        className={`card col-sm-12 col-lg-6 container ${
+          isDarkMode ? "dark" : "light-mode"
+        }`}
       >
-        <div className={`card-body row ${isDarkMode ? "dark" : "lightMode"}`}>
+        <div className={`card-body row rounded ${isDarkMode ? "dark" : "lightMode"}`}>
           <div className="col-sm-12 col-lg-6">
             <img
               className="card-img-top"
@@ -69,7 +70,9 @@ const DetailCard = () => {
               <button
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
-                className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}
+                className={`btn btn-primary ${
+                  isDarkMode ? "darkButton" : "buttonLight"
+                }`}
                 type="submit"
               >
                 Marcar consulta
@@ -79,20 +82,33 @@ const DetailCard = () => {
         </div>
         <ScheduleFormModal />
       </section>
-      <section className="container mt-4 p-3">
-        <h2>Consultas do Dentista</h2>
-        <ul className="list-group">
-          {consultasDentista.map((consulta) => (
-            <li key={consulta.id} className="list-group-item">
-              <strong>Data:</strong>{" "}
-              {format(new Date(consulta.dataHoraAgendamento), "dd/MM/yyyy HH:mm:ss", { timeZone: "America/Sao_Paulo" })}
-              <br />
-              <strong>Paciente:</strong> {consulta.paciente.nome} {consulta.paciente.sobrenome}
-              <br />
-              <strong>Dentista:</strong> {consulta.dentista.nome} {consulta.dentista.nome}
-            </li>
-          ))}
-        </ul>
+      <section className={`${styles.wrapperAppointment}`}>
+        <h2 className="text-center">Consultas do Dentista</h2>
+        <div className="d-flex justify-content-center">
+          <ul className={`list-group ${styles.slideAppointment}`}>
+            {consultasDentista.map((consulta) => (
+              <li
+                key={consulta.id}
+                className={`list-group-item ${styles.scrollBarAppointment} ${
+                  isDarkMode ? "dark" : "lightMode"
+                }`}
+              >
+                <b>Data:</b>{" "}
+                {format(
+                  new Date(consulta.dataHoraAgendamento),
+                  "dd/MM/yyyy HH:mm:ss",
+                  { timeZone: "America/Sao_Paulo" }
+                )}
+                <br />
+                <b>Paciente:</b> {consulta.paciente.nome}{" "}
+                {consulta.paciente.sobrenome}
+                <br />
+                <b>Dentista:</b> {consulta.dentista.nome}{" "}
+                {consulta.dentista.nome}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </div>
   );
