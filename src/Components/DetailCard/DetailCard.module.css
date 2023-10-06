@@ -1,13 +1,13 @@
-.wrapperBtn{
+.wrapperBtn {
     margin-top: 20px;
     padding: 20px;
 }
 
-.wrapperAppointment{
-    margin: 104px auto;
+.wrapperAppointment {
+    margin: 104px 12px !important;
 }
 
-.slideAppointment{
+.slideAppointment {
     display: flex;
     gap: 2px;
     width: 100%;
@@ -19,10 +19,14 @@
     &::-webkit-scrollbar {
         width: 5px;
     }
-     
+
     &::-webkit-scrollbar-thumb {
         border-radius: 12px;
-      background-color: #3498db;
-      outline: 1px solid #3498db;
+        background-color: #3498db;
+        outline: 1px solid #3498db;
     }
+}
+
+.scrollBarAppointment {
+    margin-right: 12px;
 }

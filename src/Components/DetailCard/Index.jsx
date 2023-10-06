@@ -43,7 +43,7 @@ const DetailCard = () => {
           isDarkMode ? "dark" : "light-mode"
         }`}
       >
-        <div className={`card-body row ${isDarkMode ? "dark" : "lightMode"}`}>
+        <div className={`card-body row rounded ${isDarkMode ? "dark" : "lightMode"}`}>
           <div className="col-sm-12 col-lg-6">
             <img
               className="card-img-top"
@@ -87,7 +87,12 @@ const DetailCard = () => {
         <div className="d-flex justify-content-center">
           <ul className={`list-group ${styles.slideAppointment}`}>
             {consultasDentista.map((consulta) => (
-              <li key={consulta.id} className={`list-group-item ${isDarkMode ? "dark" : "lightMode"}`}>
+              <li
+                key={consulta.id}
+                className={`list-group-item ${styles.scrollBarAppointment} ${
+                  isDarkMode ? "dark" : "lightMode"
+                }`}
+              >
                 <b>Data:</b>{" "}
                 {format(
                   new Date(consulta.dataHoraAgendamento),
