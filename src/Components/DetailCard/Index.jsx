@@ -25,7 +25,7 @@ const DetailCard = () => {
       });
 
     api
-      .get(`/consulta?dentistaMatricula=${id}`)
+      .get(`/consulta?matricula=${id}`)
       .then((response) => {
         console.log(response);
         setConsultasDentista(response.data);
