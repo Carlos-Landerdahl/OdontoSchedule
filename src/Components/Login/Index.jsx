@@ -113,7 +113,7 @@ const LoginForm = () => {
               <label htmlFor="username">Nome:</label>
               <input
                 className={`form-control ${styles.inputSpacing}`}
-                placeholder="Nome do usuário"
+                placeholder="Usuario"
                 type="text"
                 name="username"
                 id="username"
@@ -127,7 +127,7 @@ const LoginForm = () => {
               <label htmlFor="password" className="text-start">Senha:</label>
               <input
                 className={`form-control ${styles.inputSpacing}`}
-                placeholder="Senha do usuário"
+                placeholder="Senha"
                 name="password"
                 type="password"
                 required
@@ -140,7 +140,7 @@ const LoginForm = () => {
               {errors.authentication && <div className="text-bg-danger rounded-2 p-1 mt-1 opacity-75">{errors.authentication}</div>}
             </div>
             <button type="submit" className={`btn btn-primary ${isDarkMode ? "darkButton" : "buttonLight"}`}>
-              Entrar
+              Login
             </button>
           </form>
         </div>
