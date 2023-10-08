@@ -35,10 +35,8 @@ describe("Navbar test", () => {
       </BrowserRouter>
     );
 
-    const loginButton = screen.getByText("Login");
-
-    fireEvent.click(loginButton);
-    expect(window.location.pathname).toBe("/");
+    const themeToggleButton = screen.getByTestId("toggleDarkMode");
+    expect(themeToggleButton).toBeInTheDocument();
   });
 
   test("Botão para abrir menu no modo mobile", () => {
