@@ -14,6 +14,12 @@ const DetailCard = () => {
   const { isDarkMode } = useTheme();
   const { nome, sobrenome, usuario } = destistaDetails;
 
+  const sortedConsultasDentista = consultasDentista.slice().sort((a, b) => {
+    const dateA = new Date(a.dataHoraAgendamento);
+    const dateB = new Date(b.dataHoraAgendamento);
+    return dateA - dateB;
+  });
+
   useEffect(() => {
     api
       .get(`/dentista?matricula=aae48786-d34d-481a-8722-bea180b9b004`)
@@ -33,7 +39,7 @@ const DetailCard = () => {
       .catch((error) => {
         console.error("Erro ao buscar consultas do dentista", error);
       });
-  }, [id]);
+  }, [id, consultasDentista]);
 
   return (
     <div>
@@ -86,7 +92,7 @@ const DetailCard = () => {
         <h2 className="text-center">Consultas do Dentista</h2>
         <div className="d-flex justify-content-center">
           <ul className={`list-group ${styles.slideAppointment}`}>
-            {consultasDentista.map((consulta) => (
+            {sortedConsultasDentista.map((consulta) => (
               <li
                 key={consulta.id}
                 className={`list-group-item ${styles.scrollBarAppointment} ${
