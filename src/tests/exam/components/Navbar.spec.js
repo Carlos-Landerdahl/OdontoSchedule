@@ -7,7 +7,7 @@ import { AuthProvider } from "../../../context/AuthContext";
 import "@testing-library/jest-dom";
 
 describe("Navbar test", () => {
-  test("Botão de login redirecionando para a rota '/'", () => {
+  it("Login button redirecting to route '/'", () => {
     render(
       <BrowserRouter>
         <AuthProvider>
@@ -24,7 +24,7 @@ describe("Navbar test", () => {
     expect(window.location.pathname).toBe("/");
   });
 
-  test("Botão darkmode sendo renderizado corretamente", () => {
+  it("Dark Mode button rendering correctly", () => {
     render(
       <BrowserRouter>
         <AuthProvider>
@@ -39,7 +39,7 @@ describe("Navbar test", () => {
     expect(themeToggleButton).toBeInTheDocument();
   });
 
-  test("Botão para abrir menu no modo mobile", () => {
+  it("Button to open menu in mobile mode", () => {
     render(
       <BrowserRouter>
         <AuthProvider>
