@@ -24,7 +24,7 @@ const Navbar = () => {
             Odonto schedule
           </h1>
           <button
-            className={`btn ${isDarkMode ? "btn-light" : "btn-dark"
+            className={`btn toggleDarkMode-test ${isDarkMode ? "btn-light" : "btn-dark"
               } ${styles.btnStyleMobile}`}
             onClick={toggleDarkMode}
           >
@@ -64,17 +64,18 @@ const Navbar = () => {
                 </>
               ) : (
                 <li className={`nav-item ${styles.navBarLink}`}>
-                  <a
+                  <Link
                     className={`nav-link ${isDarkMode ? "darkLink" : ""}`}
                     href="/"
                   >
                     Login
-                  </a>
+                  </Link>
                 </li>
               )}
               <li className={`nav-item`}>
                 <button
-                  className={`btn ${isDarkMode ? "btn-light" : "btn-dark"
+                  data-testid="toggleDarkMode"
+                  className={`btn toggleDarkMode-test ${isDarkMode ? "btn-light" : "btn-dark"
                     } ${styles.btnStyle}`}
                   onClick={toggleDarkMode}
                 >
